@@ -24,6 +24,7 @@
     {"id":{"name":"snd_atk3","path":"sounds/snd_atk3/snd_atk3.yy",},"order":2,},
     {"id":{"name":"snd_hit6","path":"sounds/snd_hit6/snd_hit6.yy",},"order":10,},
     {"id":{"name":"spr_enemy_dead","path":"sprites/spr_enemy_dead/spr_enemy_dead.yy",},"order":2,},
+    {"id":{"name":"Obj_player","path":"objects/Obj_player/Obj_player.yy",},"order":0,},
     {"id":{"name":"snd_hit3","path":"sounds/snd_hit3/snd_hit3.yy",},"order":7,},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},"order":0,},
   ],
