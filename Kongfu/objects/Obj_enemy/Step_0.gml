@@ -32,15 +32,24 @@ else
 	hited-=1;//静止，等待打击效果结束
 
 }
-/*//***敌人攻击逻辑
-if(state==0)//移动状态下可出招
+//***敌人攻击逻辑
+//***判断是否攻击
+if(state==0&&hited==0)//移动状态下可出招
 {
+	
 	//***膝击
-	alarm[0]=16;
-	scr_state_set()
+	if((x-Obj_player.x)<20&&(x-Obj_player.x>-20))
+	scr_state_set2(spr_enemy_atk0,0,1,32,x+12*image_xscale,y-13);
+	else 
+	if((x-Obj_player.x)<27&&(x-Obj_player.x>-27))
+	{
+		scr_state_set2(spr_enemy_atk1,1,1,32,x+26*image_xscale,y-29);
+	}
 
 }
-*/
+
+
+
 if(x<=Obj_player.x&&jump==0)face=1;
 else face=-1;
 image_xscale=face;

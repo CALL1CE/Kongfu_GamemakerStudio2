@@ -3,6 +3,7 @@
 function scr_state_set(argument0,argument1,argument2){
 	sprite_index=spr_player_atk;
 	image_index=argument0;
+
 	state=argument1;
 	timer=argument2;//出招定格帧数
 	var dx,dy;

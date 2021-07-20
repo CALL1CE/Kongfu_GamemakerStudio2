@@ -6,6 +6,7 @@
     {"id":{"name":"spr_player_walk","path":"sprites/spr_player_walk/spr_player_walk.yy",},"order":3,},
     {"id":{"name":"spr_enemy_walk","path":"sprites/spr_enemy_walk/spr_enemy_walk.yy",},"order":3,},
     {"id":{"name":"snd_music","path":"sounds/snd_music/snd_music.yy",},"order":11,},
+    {"id":{"name":"Script2","path":"scripts/Script2/Script2.yy",},"order":1,},
     {"id":{"name":"snd_fall1","path":"sounds/snd_fall1/snd_fall1.yy",},"order":3,},
     {"id":{"name":"snd_hit4","path":"sounds/snd_hit4/snd_hit4.yy",},"order":8,},
     {"id":{"name":"snd_atk1","path":"sounds/snd_atk1/snd_atk1.yy",},"order":0,},

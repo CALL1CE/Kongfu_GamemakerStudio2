@@ -11,7 +11,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "snd_hit5",
-  "duration": 0.0,
+  "duration": 0.114104,
   "parent": {
     "name": "Sounds",
     "path": "folders/Sounds.yy",

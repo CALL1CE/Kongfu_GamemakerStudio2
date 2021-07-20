@@ -11,7 +11,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "snd_atk3",
-  "duration": 0.0,
+  "duration": 0.434898,
   "parent": {
     "name": "Sounds",
     "path": "folders/Sounds.yy",
