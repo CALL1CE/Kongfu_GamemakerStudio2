@@ -21,22 +21,113 @@ if(jump==0&&state==0)//可相应按键
 	{
 		dy=-1;
 		jump=1;
+		if(dx!=0)jumpface=dx;
+		direction=90;
+		speed=5;
+		gravity=0.25;
+		sprite_index=spr_player_jump;
+	}
+	else//注意，不要漏掉
+	if(keyboard_check(ord("S")))
+	{
+		dy=1;
+		sprite_index=spr_player_jump;
 	
 	}
+	if(keyboard_check(ord("J")))&&jump==0//出腿
+	{
+		if(dx!=0)//左右腿
+			scr_state_set(3,1,16);
+		else
+		if(dy==1)//蹲腿
+			scr_state_set(2,1,16);
+		else//原地腿
+			scr_state_set(2,1,16);
+	}
+	if(keyboard_check(ord("K"))&&state==0)//出拳
+	{
+		if(dy==1)//蹲拳
+			scr_state_set(1,1,16);
+		else
+		if(dy!=-1)//原地拳
+			scr_state_set(0,1,16);
+	}
 }
+//***飞踢
+if(jump==1&&keyboard_check(ord("J"))&&state==0)
+{
+	scr_state_set(5,1,16);
+}
+//***出招
+if(state==1)
+{
+	timer-=1;//计时器自减
+	if(timer<=0)//出招结束，变换状态
+	{
+		state=2;//收招
+		timer=8;//收招计时器
+		if(image_index==1||image_index==4||image_index==5)//下蹲类出招的收招动作
+		{
+			if(image_index==5)
+			{timer=100;}//飞腿再空中只能一次
+			sprite_index=spr_player_jump;//变换动作
+		}
+		else//其他动作类收招动作
+		{
+			sprite_index=spr_player_walk;
+		}
+		image_index=0;//子图像序号归零,写这句话其实没什么用，因为给sprite_index赋值后会自动执行这行代码
+	}
+}
+	//***收招
+	if(state==2)
+	{
+		timer-=1;//计时器
+		if(timer<=0)
+		{
+			state=0;//变为可移动状态
+			sprite_index=spr_player_walk;//变为站立动画
+			if(jump==1)sprite_index=spr_player_jump;//变为跳跃动画
+			image_index=0;
+			timer=0;
+		}
+	}
+//***下落
+if(direction==270&&jump==1)
+{
+	if(y+speed>191)
+	{
+		y=191;
+		speed=0;
+		gravity=0;
+		jump=0;
+		//state=0;
+		timer=8;
+		jumpface=0;
+		sprite_index=spr_player_walk;
+	}
+}
+		
+
 
 //***坐标变化
 x+=dx*psb;
 x+=jumpface*psb*2;
-
 //***坐标限制
 if(x<24)
 {
 	x=24;
-	jumpface=-jumpface;
+	jumpface=-jumpface;//弹跳反射
 }
 if(x>room_width-24)
 {
 	x=room_width-24;
 	jumpface=-jumpface;
 }
+//***方向变化
+if(jump==0)
+{
+	if(x<=Obj_enemy.x)face=1;//朝右
+	else face=-1;//朝左
+}
+image_xscale=face;
